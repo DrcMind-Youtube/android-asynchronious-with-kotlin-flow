@@ -44,7 +44,7 @@ class MainActivity : ComponentActivity() {
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MyScreen(viewModel: MainViewModel = viewModel()) {
-    val state = viewModel.state
+    val state = viewModel.stateFlow.collectAsState()
 
     Scaffold(
         floatingActionButton = {
@@ -81,8 +81,6 @@ fun MyScreen(viewModel: MainViewModel = viewModel()) {
             }
         }
     }
-
-
 }
 
 
